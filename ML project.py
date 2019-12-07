@@ -53,8 +53,9 @@ class statistics_processing:
         self.vectors = vector_list
     
     def covariance_matrix(self):
+        self.number = np.shape(self.vectors)[1]
         self.X = np.dot(self.vectors, self.vectors.transpose())
-        return self.X
+        return self.X/self.number
     
     def determinant(self):
         return np.linalg.det(self.covariance_matrix())
